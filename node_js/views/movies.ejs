@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="http://iconsetc.com/icons-watermarks/simple-orange/encircled/encircled_capital-m/encircled_capital-m_simple-orange_512x512.png" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>MiniFlix</title>
+<script>
+
+  const VideoController = function(isHovering, videoElement)
+  {
+    if (isHovering == true)
+      {
+          videoElement.play();
+          videoElement.controls=true;
+          videoElement.className="enlarged";
+          videoElement.muted=false;
+           
+      }
+      else if (isHovering == false)
+      {
+          videoElement.load();
+          videoElement.controls=false;
+          videoElement.className="normal";
+          
+      }
+  }
+
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+
+</script>
+<style>
+
+
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  
+  .mySlides {
+    display: none;
+  }
+  
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  
+  
+  
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  body{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin: 0px;
+  }
+  
+  video{
+    position:relative;
+  }
+  
+  form{
+    display:inline-block;
+  }
+  
+  .normal{
+    width:320px;
+    height: 180px;;
+    
+  }
+  
+  .enlarged{
+    width: 422px;;
+    height: 238px;;
+    margin-bottom: -30px;
+    
+  }
+  
+  .navbar {
+      overflow: hidden;
+      background-color: rgb(255, 115, 0);
+      height: 50px;
+  }
+  
+  .navbar a {
+    
+    width: 7%;
+    float: left;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: right;
+    overflow: hidden;
+    margin-top: 1.5px;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    box-shadow: 0px 8px 16px 0px rgba(212, 97, 3, 0.11);
+    z-index: 2;
+  
+  }
+  
+  .dropdown-content a {
+    float: left;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    width:100%;
+    z-index: 2;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: rgb(128, 128, 128);
+    color: black;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .navigation{
+    
+    width: 89%;
+    margin: 0%;
+  }
+  
+  .logo{
+    width: 10%;
+    margin: 0%;
+  }
+  
+  .logo, .navigation{
+    display: inline-block;
+  }
+  
+  input[type=text] {
+    float: left;
+    border: none;
+    height: 38.5px;
+    margin-top: 1px;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(24, 24, 24);
+    width: 70%;
+  }
+  
+  
+  .logoimg{
+    width: 100%;
+    margin: 0%;
+  }
+  
+  .dark-mode {
+    background-color: rgb(255, 245, 238);
+    color: rgb(0, 0, 0);
+  }
+  
+  
+  
+  video,form{
+    margin-right: 2px;
+  }
+  
+  #main{
+    display: block;
+    margin-left:2px;
+    margin-right:2px;
+    width:99.9%;
+    height: 500px;;
+  }
+  
+  .submit-btn{
+    position: relative;
+    width: 38%;
+    margin: 4%;
+    height: 25px;
+    display: inline-block;
+    color: white;
+    background-color: black;
+  }
+  
+  
+  
+  form input{
+    display: block;
+  }
+  
+  header{
+    width: 100%;
+    margin: 0px;
+  }
+  
+  .search-bar{
+    float: right;
+    position: relative;
+    width:30%;
+    margin-top: 4px;
+  }
+  
+  .dark-btn{
+    float: right;
+    width: fit-content;
+    margin-top: 8px;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: black;
+    margin-right: 20px;
+  }
+  
+  .det-fav{
+    background-color: rgb(255, 115, 0);
+    width: 99%;
+  }
+
+  .det-fav button{
+    width: 100%;
+  }
+
+  .search-lang-gen{
+    background-color: rgb(58, 58, 58);
+    display: block;
+    position: relative;
+    height: 30px;
+    margin-bottom: 5px;
+    z-index: 1;
+  }
+
+  .search-lang-btn{
+    display: inline-block;
+    width: 15%;
+    margin: 2px;
+  }
+
+  .search-gen-btn{
+    display: inline-block;
+    width: 15%;
+  }
+  
+</style>
+
+</head>
+
+
+
+<body>
+  <header>
+    <div class="logo">
+      <a style="margin: 0%;width: 100%;" href="/home"><img class="logoimg" src='logo.jpeg' alt="Logo"/></a>
+    </div>
+
+    <div class="navigation">
+      <nav class=navbar>
+        <a href="/home">Home</a>
+        <a href="/movies">Movies</a>
+        <a href="/series">TV Shows</a>
+        <a href="/fav">Favourites</a>
+        <div class="dropdown">
+          <button class="dropbtn">Profile
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="/profile">View Profile</a>
+            <a href="/">Logout</a>
+          </div>
+        </div> 
+        <button class="dark-btn" onclick="myFunction()"><i class="fa fa-moon-o"></i></button>
+        <form class="search-bar" action="/search_home" method="post">
+          <input type="text" name="search" placeholder="Enter movie or series name">
+          <button type="submit"><img src="favicon-32x32.png" alt="search icon"/></button>
+        </form>
+
+        <script>
+          function myFunction() {
+             var element1 = document.body;
+             element1.classList.toggle("dark-mode");
+             var element2 = document.getElementsByClassName("navbar");
+             element2.classList.toggle("dark-mode");
+          }
+        </script>
+      </nav>
+    </div>
+  </header>
+
+  <div class="search-lang-gen">
+    <h4 style="margin: 2px;" class="search-gen-btn">Search Movies by :</h4>
+    <div class="search-gen-btn">
+      <form action="/search_genre_m" method="POST">
+       <select id="genre" name="genre" onchange="this.form.submit()">
+        <option value="" disabled selected hidden>Genre</option>
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Romance">Romance</option>
+        <option value="Horror">Horror</option>
+        <option value="Science Fiction">Sci-Fi</option>
+        <option value="Fantasy">Fantasy</option>
+      </select>
+      </form>
+    </div>
+    
+    
+    <div class="search-lang-btn">
+      <form action="/search_l_m" method="POST">
+       <select id="lang" name="lang" onchange="this.form.submit()">
+        <option value="" disabled selected hidden>Language</option>
+        <option value="English">English</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Tamil">Tamil</option>
+        <option value="Telugu">Telugu</option>
+        <option value="Malyalam">Malayalam</option>
+      </select>
+      </form>
+    </div>
+
+  </div>
+
+
+  <div style="position: relative;z-index: 1;">
+    <video onmouseenter='VideoController(true, this)' style="object-fit: fill;" onmouseleave='VideoController(false, this)' id="main"  muted="muted" poster="https://static.toiimg.com/photo/63784610.cms">
+      <source src="https://drive.google.com/uc?export=download&id=1ACQUZL-LeMxmwcVkFyTZ5lmIfRDxgDwS" type="video/mp4" />
+    </video>
+  </div>
+    <br>
+  <div>
+    <h4>ACTION</h4>
+    <form action="/details_movie" method="post" >
+    <video onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' id="videoPlayer" class="normal" muted="muted" 
+    poster="https://www.joblo.com/assets/images/joblo/posters/2021/03/godzilla-vs-kong-movie-poster-king-kong.jpg">
+      <source src="https://drive.google.com/uc?export=download&id=13Diylcpj6072AyoCTxG9uGSxEKClBXWC" type="video/mp4"  />
+    </video>
+    <div class="det-fav">
+    <input type="hidden" name="name" value="Godzilla vs. Kong">
+  
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Godzilla vs. Kong" class="submit-btn">Add to favorites</button>
+    </form>
+   
+  </div>
+
+   <form action="/details_movie" method="post" >
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit:fill;" onmouseleave='VideoController(false, this)' class="normal" muted="muted" 
+    poster="https://media2.bollywoodhungama.in/wp-content/uploads/2018/04/Raazi-05.jpg">
+      <source src="https://drive.google.com/uc?export=download&id=1SEdwk-xSevp13LFNqd-rIIQKWGwjrnvv" type="video/mp4" />
+    </video>
+    <div class="det-fav">
+    <input type="hidden" name="name" value="Raazi">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Raazi" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+ <form action="/details_movie" method="post" >
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit:fill;" onmouseleave='VideoController(false, this)' class="normal" muted="muted" 
+    poster="https://i0.wp.com/teaser-trailer.com/wp-content/uploads/1600x1600bb.jpg?ssl=1">
+      <source src="https://drive.google.com/uc?export=download&id=1P_gvq8Qv9ooZ8vl0f0GVsMG8BgiJX1-7" type="video/mp4" />
+    </video>
+    <div class="det-fav">
+    <input type="hidden" name="name" value="Skylines">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Skylines" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+ <form action="/details_movie" method="post" >
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit:fill;" onmouseleave='VideoController(false, this)' class="normal" muted="muted" 
+    poster="https://moviegalleri.net/wp-content/uploads/2018/09/Rajinikanth-Petta-Movie-First-Look-Poster-HD.jpg">
+      <source src="https://drive.google.com/uc?export=download&id=1oeWV29tuKnT9KPYq_6mR1w0ZJliNCIF8" type="video/mp4" />
+    </video>
+    <div class="det-fav">
+    <input type="hidden" name="name" value="Petta">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Petta" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+   <form action="/details_movie" method="post" >
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit:fill;" onmouseleave='VideoController(false, this)' class="normal" muted="muted" 
+    poster="https://m.media-amazon.com/images/M/MV5BYTMzMzlhODgtY2FhYy00ZTI4LWJjMTQtNjRjNjFhZGQyNzFiXkEyXkFqcGdeQXVyODIwMDI1NjM@._V1_.jpg">
+      <source src="https://drive.google.com/uc?export=download&id=1o32KVoBFU03HDrAtOWj15bOPkF4L5IM_" type="video/mp4" />
+    </video>
+    <div class="det-fav">
+    <input type="hidden" name="name" value="Spyder">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Spyder" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+      <form action="/details_movie" method="post">
+      <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit:fill;" onmouseleave='VideoController(false, this)' class="normal" muted="muted" 
+      poster="https://www.joblo.com/assets/images/joblo/posters/2019/07/D-4qvoCU0AUsNqD.jpg">
+        <source src="https://drive.google.com/uc?export=download&id=1YhA-LlOu_n4-6Kv6-BcrLWCgXD60QvCZ" type="video/mp4" />
+      </video>
+      <div class="det-fav">
+        <input type="hidden" name="name" value="Mulan">
+        <input type="submit" value="Details" class="submit-btn">
+        </form>
+        <form action="/home_add" method="post">
+            <button type="submit" name="fav" value="Mulan" class="submit-btn">Add to favorites</button>
+        </form>
+      </div>
+  </div>
+
+  <div>
+<h4>COMEDY</h4>
+
+<form action="/details_movie" method="post">
+  <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+  poster="https://images-na.ssl-images-amazon.com/images/I/81QqINwiCGL._SY879_.jpg">
+    <source src="https://drive.google.com/uc?export=download&id=1Qn_SBVp61KHyyPFjGMYxXSQRe2sDNpB5" type="video/mp4" />
+  </video>
+  <div class="det-fav">
+    <input type="hidden" name="name" value="Clueless">
+    <input type="submit" value="Details" class="submit-btn">
+    </form>
+    <form action="/home_add" method="post">
+        <button type="submit" name="fav" value="Clueless" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+<form action="/details_movie" method="post">
+  <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+  poster="https://m.media-amazon.com/images/M/MV5BNGEzMGY5ODUtZTFjNC00NjZkLTgyNWUtMDMwNTE5YzQwOWUxL2ltYWdlXkEyXkFqcGdeQXVyNzA1Mzk4MQ@@._V1_.jpg">
+    <source src="https://drive.google.com/uc?export=download&id=1hW8v_b_zjNr98dFY7mxMDegOYg-nnHyU" type="video/mp4" />
+  </video>
+  <div class="det-fav">
+    <input type="hidden" name="name" value="The Climb">
+    <input type="submit" value="Details" class="submit-btn">
+    </form>
+    <form action="/home_add" method="post">
+        <button type="submit" name="fav" value="The Climb" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+  <form action="/details_movie" method="post">
+  <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+  poster="https://wallpapercave.com/wp/wp6568154.jpg">
+    <source src="https://drive.google.com/uc?export=download&id=1fcYCXPuYfi3h5zrsWVwClGV1OrlMcedM" type="video/mp4" />
+  </video>
+  <div class="det-fav">
+    <input type="hidden" name="name" value="3 Idiots">
+    <input type="submit" value="Details" class="submit-btn">
+    </form>
+    <form action="/home_add" method="post">
+        <button type="submit" name="fav" value="3 Idiots" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+  <form action="/details_movie" method="post">
+  <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+  poster="https://wallpaperaccess.com/full/2466581.jpg">
+    <source src="https://drive.google.com/uc?export=download&id=1xlrgB8Rc6jAGH_yv7oH7OlmY0WgJMqPz" type="video/mp4" />
+  </video>
+  <div class="det-fav">
+    <input type="hidden" name="name" value="We're the Millers">
+    <input type="submit" value="Details" class="submit-btn">
+    </form>
+    <form action="/home_add" method="post">
+        <button type="submit" name="fav" value="We're the Millers" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+    <form action="/details_movie" method="post">
+<video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+poster="https://www.filmibeat.com/ph-big/2019/12/sillu-karupatti_157648765710.jpg">
+  <source src="https://drive.google.com/uc?export=download&id=1iPAlUQ1YcSZrA5LrJD2z8VivqOttVW2a" type="video/mp4" />
+</video>
+<div class="det-fav">
+  <input type="hidden" name="name" value="Sillu Karuppatti">
+  <input type="submit" value="Details" class="submit-btn">
+</form>
+<form action="/home_add" method="post">
+  <button type="submit" name="fav" value="Sillu Karuppatti" class="submit-btn">Add to favorites</button>
+  </form>
+</div>
+
+    <form action="/details_movie" method="post">
+  <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+  poster="https://cdn.123telugu.com/photos/wp-content/uploads/2020/02/Bheeshma-posters-8.jpg">
+    <source src="https://drive.google.com/uc?export=download&id=1h7W9RmZfH8edlL1HyHVOU4cflLBe_1Nf
+" type="video/mp4" />
+  </video>
+  <div class="det-fav">
+    <input type="hidden" name="name" value="Bheeshma">
+    <input type="submit" value="Details" class="submit-btn">
+    </form>
+    <form action="/home_add" method="post">
+        <button type="submit" name="fav" value="Bheeshma" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+  </div>
+
+  <div>
+    <h4>ROMANCE</h4>
+
+     <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+    poster="https://cdn.shopify.com/s/files/1/1416/8662/products/titanic_1997_original_film_art_dfbd6b72-6ccb-422c-b34f-82c81d2c9d86_5000x.jpg?v=1617659236">
+      <source src="https://drive.google.com/uc?export=download&id=1fzAjk-vUzjF7v_2C1kWr7wSehp48Rq4O" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Titanic">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Titanic" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+   <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+    poster="https://www.filmibeat.com/img/2020/01/varane-avashyamund-second-poster-dulquer-salmaan-kalyani-priyadarshan-1579023712.jpg">
+      <source src="https://drive.google.com/uc?export=download&id=1a97dXPn5VxfRiB54qDqLagqcxVmb8HUe" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Varane Avashyamund">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Varane Avashyamund" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+   <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)'
+    poster="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201610/dearzindagi-story_fb_647_101916101537.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=12GtlNGNrLuvOk8uelxqSGEqmENS60f-X" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Dear Zindagi">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Dear Zindagi" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+    <form action="/details_movie" method="post">
+      <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+      poster="https://media2.bollywoodhungama.in/wp-content/uploads/2016/05/79803112.jpg">
+        <source src="https://drive.google.com/uc?export=download&id=1lRVhuXUl8UIWCgcx9zm0J8Y-M9xc5u0o" type="video/mp4" />
+      </video>
+      <div class="det-fav">
+        <input type="hidden" name="name" value="2 States">
+        <input type="submit" value="Details" class="submit-btn">
+        </form>
+        <form action="/home_add" method="post">
+            <button type="submit" name="fav" value="2 States" class="submit-btn">Add to favorites</button>
+        </form>
+      </div>
+
+       <form action="/details_movie" method="post">
+      <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' muted="muted" class="normal" 
+      poster="https://i0.wp.com/www.socialnews.xyz/wp-content/uploads/2019/08/09/Manmadhudu-2-Movie-Releasing-Today-Poster-.jpg?quality=90&zoom=1&ssl=1">
+        <source src="https://drive.google.com/uc?export=download&id=15VZsLLJ3C3iHUuBeKHaQ25p0tU_vH2oz" type="video/mp4" />
+      </video>
+      <div class="det-fav">
+        <input type="hidden" name="name" value="Manmadhudu 2">
+        <input type="submit" value="Details" class="submit-btn">
+        </form>
+        <form action="/home_add" method="post">
+            <button type="submit" name="fav" value="Manmadhudu 2" class="submit-btn">Add to favorites</button>
+        </form>
+      </div>
+
+
+    <form action="/details_movie" method="post">
+      <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)'
+      poster="https://vistapointe.net/images/pretty-woman-wallpaper-8.jpg" class="normal" muted="muted">
+        <source src="https://drive.google.com/uc?export=download&id=1Vz4TdtdjzN6u2D5srdRELYYJe6hphr1I" type="video/mp4" />
+      </video>
+      <div class="det-fav">
+        <input type="hidden" name="name" value="Pretty Woman">
+        <input type="submit" value="Details" class="submit-btn">
+        </form>
+        <form action="/home_add" method="post">
+            <button type="submit" name="fav" value="Pretty Woman" class="submit-btn">Add to favorites</button>
+        </form>
+      </div>
+  </div>
+
+  <div>
+    <h4>HORROR</h4>
+   
+   <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://www.joblo.com/assets/images/oldsite/posters/images/full/conjuring-poster1.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1vGq5BJd7VNkos0laJAvSm_IK-93LFOcv" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="The Conjuring">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="The Conjuring" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://www.klapboardpost.com/wp-content/uploads/2020/11/Andhakaaram.jpg?v=1606196353" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1CcpeWXkBZCEFSGDiOMhsKxa-yccQ-L2X" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Andhakaaram">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Andhakaaram" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://stat2.bollywoodhungama.in/wp-content/uploads/2016/03/56001116.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=11CqBs3CFg0qS_iQ5zbrsttz221eObTn8" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="1920:Evil Returns">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="1920:Evil Returns" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+ 
+
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://images-na.ssl-images-amazon.com/images/I/61qKRIpzPTL._AC_SY741_.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1upGAMU2mVa0y_zQ1njdUtHERb1P_0tR_" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Ouija: Origin of Evil">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Ouija: Origin of Evil" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+  
+
+    <form action="/details_movie" method="post">
+      <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+      poster="http://www.impawards.com/2020/posters/freaky_xlg.jpg" class="normal" muted="muted">
+        <source src="https://drive.google.com/uc?export=download&id=1zRHow4l7O9Hztn9i_sXQ61ArV9mz6nXa" type="video/mp4" />
+      </video>
+      <div class="det-fav">
+        <input type="hidden" name="name" value="Freaky">
+        <input type="submit" value="Details" class="submit-btn">
+        </form>
+        <form action="/home_add" method="post">
+            <button type="submit" name="fav" value="Freaky" class="submit-btn">Add to favorites</button>
+        </form>
+      </div>
+
+    <form action="/details_movie" method="post">
+      <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+      poster="https://upload.wikimedia.org/wikipedia/en/e/ed/Aruvam_poster.jpg" class="normal" muted="muted">
+        <source src="https://drive.google.com/uc?export=download&id=1NOhb4UbmdrieOS93bnIi0Dj9FrgtAcjy" type="video/mp4" />
+      </video>
+      <div class="det-fav">
+        <input type="hidden" name="name" value="Aruvam">
+        <input type="submit" value="Details" class="submit-btn">
+        </form>
+        <form action="/home_add" method="post">
+            <button type="submit" name="fav" value="Aruvam" class="submit-btn">Add to favorites</button>
+        </form>
+      </div>
+  </div>
+ 
+ <div>
+  <h4>SCIENCE FICTION</h4>
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://upload.wikimedia.org/wikipedia/en/a/a0/A_Quiet_Place_film_poster.png" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1GwZMJpFqca1r3SZuLDhDoKN0NKNdT65f" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="A Quiet Place">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="A Quiet Place" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://upload.wikimedia.org/wikipedia/en/c/cc/Mayavan_%282017%29.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1-YpJ95I3tnzP8jSjG4YqPUDLyNo5Byjj" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Maayavan">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Maayavan" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+  
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://media2.bollywoodhungama.in/wp-content/uploads/2016/11/Koi-Mil-Gaya-3.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1ef5h_PPQTghvby9qeVcXFiBk_6eF4ep3" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Koi Mil Gaya">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Koi Mil Gaya" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+  
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://upload.wikimedia.org/wikipedia/en/b/bd/Bird_Box_%28film%29.png" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=12rWwdXbkFwmEA7PDZMvjUkJ1RFkGPvWr" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Bird Box">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Bird Box" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+  
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://images-na.ssl-images-amazon.com/images/I/81kz06oSUeL._AC_SL1500_.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1t6BLLVaC26oz4CuHpokl9SCFzA8XmcvV" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Interstellar">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Interstellar" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+  
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/674b36f0-7771-4188-b382-ade2d495544a/dcu3a1p-a87eac2f-3d24-4eb8-90a6-2c7831344362.png/v1/fill/w_1280,h_2007,q_80,strp/avengers_endgame_poster_by_iamtherealnova_dcu3a1p-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjAwNyIsInBhdGgiOiJcL2ZcLzY3NGIzNmYwLTc3NzEtNDE4OC1iMzgyLWFkZTJkNDk1NTQ0YVwvZGN1M2ExcC1hODdlYWMyZi0zZDI0LTRlYjgtOTBhNi0yYzc4MzEzNDQzNjIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.00Rly469X45SkQtxYdjkmUjZCLnlja5gH8ZqmG4PMHw" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=14RLeR47CabX7Pw7OYAlINuuKH_9bxy4h" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Avengers Endgame">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Avengers Endgame" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+<div>
+  <h4>FANTASY</h4>
+  <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://upload.wikimedia.org/wikipedia/en/8/86/Iblis_film_poster.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=17mVQU04iuq2hyZrq-gjzup9JjIHdLyyz" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Iblis">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Iblis" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+<form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://upload.wikimedia.org/wikipedia/en/8/8b/Raabta_poster.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1W9XWkHxIx8LUiS0CF9WM8GqwzMfoMrZ7" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Raabta">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Raabta" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+   <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://moviereviewmom.com/wp-content/uploads/2020/10/The-Witches-movie-poster.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1nOE1aT0j9TAIccFytaderTtAvqAh-Ee5" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="The Witches">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="The Witches" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+   <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://4.bp.blogspot.com/-Bq_3ncC41dY/T8wx944931I/AAAAAAAAazw/J9qAKg_1RGA/s1600/Naane+Latest+Posters+Swaroop+The+King+%281%29.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1_ec7LvtrJEwhEEDjFX9kFCRG77m3TUG9" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Naan Ee">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Naan Ee" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+   <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://cdn.shopify.com/s/files/1/1416/8662/products/lifeofPi_2012_style_a_original_film_art_5000x.jpg?v=1605573981" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1RRPYLqi-itRg49Mm61063YZGX4cdM0wo" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Life Of Pi">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Life Of Pi" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+   <form action="/details_movie" method="post">
+    <video id="videoPlayer" onmouseenter='VideoController(true, this)' style="object-fit: fill;" width="25%" height="5%" onmouseleave='VideoController(false, this)' 
+    poster="https://www.themoviedb.org/t/p/original/ijJm0RSeKIr67qkHLtSmtigS6ra.jpg" class="normal" muted="muted">
+      <source src="https://drive.google.com/uc?export=download&id=1lFEFBPN1Bkfv2l1IF2iGCF9ZgMpnVTFs" type="video/mp4" />
+    </video>
+     <div class="det-fav">
+    <input type="hidden" name="name" value="Coma">
+    <input type="submit" value="Details" class="submit-btn">
+  </form>
+  <form action="/home_add" method="post">
+    <button type="submit" name="fav" value="Coma" class="submit-btn">Add to favorites</button>
+    </form>
+  </div>
+
+</body>
+</html>

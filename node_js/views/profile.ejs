@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .logoimg{
+                  width: 100%;
+                  margin: 0%;
+                  height: 50px;
+        }
+        
+        .navigation{
+                  
+                  width: 89%;
+                  margin: 0%;
+                }
+                
+                .logo{
+                  width: 10%;
+                  margin: 0%;
+                }
+                
+                .logo, .navigation{
+                  display: inline-block;
+                }
+        
+                header{
+            width: 100%;
+            margin: 0px;
+            height: 50px;
+          }
+        .navigation{
+            height: 50px;
+        }
+           body{
+          background-color: rgb(0, 0, 0);
+          color: rgb(0, 0, 0);
+        }
+        .container{
+            width: 95%;
+            margin: 0 auto;
+        }
+        
+        .container h3 {
+                text-align: left;
+                font-size: 26px;
+            }
+        .container .form-group {
+                position: relative;
+            }
+        .container .form-control:focus {
+                border-color: rgb(255, 115, 0);
+            }
+        .container .form-control, .container .btn {
+                min-height: 40px;
+                border-radius: 3px; 
+            }
+        .container .hint-text {
+                text-align: center;
+                padding-top: 10px;
+            }
+        .container .close {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+            }
+        
+        
+        form{
+                background-color: white;
+                padding: 10px;
+                width: 40%;
+                margin: 10px auto;
+                box-shadow: 2px 2px rgb(112, 112, 112);
+                border-radius: 2px;
+              box-shadow:  0 0 10px 5px rgba(0,0,0,0.6);
+              -moz-box-shadow: 0 0 10px  5px rgba(0,0,0,0.6);
+              -webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+              -o-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+            }
+        header{
+            background-color: rgb(255, 115, 0);
+            margin: 0px;
+        }
+        input{
+            width: 80%;
+            margin: 0 auto;
+        }
+         button{
+             padding: 0px;
+             margin: 0px;
+             width: 100%;
+             
+         }
+         label {
+          margin-bottom: 10px;
+          margin-left: 5%;
+          display: block;
+          text-align: left;
+        }
+         
+            .btn {
+          background-color: #000000;
+          color: rgb(255, 255, 255);
+          padding: 12px;
+          margin: 10px auto;
+          border: none;
+          width: 90%;
+          border-radius: 3px;
+          cursor: pointer;
+          font-size: 17px;
+          display: block;
+        }
+        
+        .btn:hover {
+          background-color: #FFFFFF;
+        }
+         .container .form-control {
+                padding-left: 40px;
+         }
+
+         h2{
+             color: white;
+         }
+        </style>
+
+</head>
+<body>
+
+    <header>
+		<div class="logo">
+		  <a style="margin: 0%;width: 100%;" href="/home"><img class="logoimg" src='logo.jpeg' alt="Logo"/></a>
+		</div>
+	
+		<div style="width: 89%; text-align: center;font-size: 35px;" class="navigation">
+			Profile
+		</div>
+	</header>
+
+<div style="text-align: center;width: 45%; margin: 30px auto;border: white 1px solid;">
+
+    <h2>Name:<%=name%></h2>
+    <br>
+    <h2>Email:<%=email%></h2>
+    <br>
+    <h2>Country:<%=country%></h2><br>
+    <h2>Plan:<%=plan%></h2><br>
+
+
+    <br>
+
+    <a href="/edit_profile"><button style="width:45%;height: 30px;background-color: rgb(255, 115, 0);color: white;">Edit Profile</button></a>
+    <a href="/home"><button style="width:45%;height: 30px;background-color: rgb(255, 115, 0);color: white;">Back to Home</button></a>
+    <br>
+    <br>
+
+</div>
+</body>
+</html>
+
+

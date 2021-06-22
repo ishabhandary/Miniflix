@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choose your Plan</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+	.container {
+		color: #4A3F3F;
+		width: 28%;
+		margin: 30px 30% 30px 40%;
+	}
+    form{
+        font-size: 15px;
+		background-color: white;
+		padding: 10px;
+		width: 100%;
+		box-shadow: 2px 2px rgb(112, 112, 112);
+		border-radius: 2px;
+      background-color: #eed;
+      box-shadow:  0 0 10px 5px rgba(0,0,0,0.6);
+      -moz-box-shadow: 0 0 10px  5px rgba(0,0,0,0.6);
+      -webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+      -o-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+	}
+#Plans {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#Plans td {
+    font-size: 20px;
+}
+#Plans td, #Plans th {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 2px;
+  padding: 8px;
+}
+
+#Plans tr:nth-child(even){background-color: #f2f2f2;}
+
+#Plans tr:hover {background-color: rgb(255, 115, 0);}
+
+#Plans th {
+  font-size: 25px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(255, 115, 0);
+  color: black;
+}
+
+ body {
+		font-family: 'Varela Round', sans-serif;
+		background-color: black;
+		background-size: cover;
+		background-size: 100% 150%;
+		background-repeat: no-repeat;
+		background-image: url('https://novinbrand.com/wp-content/uploads/2021/05/Photo_1621515056528.jpg');
+	}
+
+
+.slideshow-container {
+	  max-width: 1000px;
+	  position: relative;
+	  margin: auto;
+	}
+	
+	
+	.mySlides {
+	  display: none;
+	}
+	
+	
+	.prev, .next {
+	  cursor: pointer;
+	  position: absolute;
+	  top: 50%;
+	  width: auto;
+	  margin-top: -22px;
+	  padding: 16px;
+	  color: white;
+	  font-weight: bold;
+	  font-size: 18px;
+	  transition: 0.6s ease;
+	  border-radius: 0 3px 3px 0;
+	  user-select: none;
+	}
+	
+	.next {
+	  right: 0;
+	  border-radius: 3px 0 0 3px;
+	}
+	
+	
+	.prev:hover, .next:hover {
+	  background-color: rgba(0,0,0,0.8);
+	}
+	
+	.numbertext {
+	  color: #f2f2f2;
+	  font-size: 12px;
+	  padding: 8px 12px;
+	  position: absolute;
+	  top: 0;
+	}
+	
+	
+	.dot {
+	  cursor: pointer;
+	  height: 15px;
+	  width: 15px;
+	  margin: 0 2px;
+	  background-color: #bbb;
+	  border-radius: 50%;
+	  display: inline-block;
+	  transition: background-color 0.6s ease;
+	}
+	
+	.active, .dot:hover {
+	  background-color: #717171;
+	}
+	
+	.fade {
+	  -webkit-animation-name: fade;
+	  -webkit-animation-duration: 1.5s;
+	  animation-name: fade;
+	  animation-duration: 1.5s;
+	}
+	
+	@-webkit-keyframes fade {
+	  from {opacity: .4}
+	  to {opacity: 1}
+	}
+	
+	@keyframes fade {
+	  from {opacity: .4}
+	  to {opacity: 1}
+	}
+	
+
+	video{
+	  position:relative;
+	}
+	
+	form{
+	  display:inline-block;
+	}
+	
+	.normal{
+	  width:320px;
+	  height: 180px;;
+	  
+	}
+	
+	.enlarged{
+	  width: 422px;;
+	  height: 238px;;
+	  margin-bottom: -30px;
+	  
+	}
+	
+	.navbar {
+		overflow: hidden;
+		background-color: rgb(255, 115, 0);
+		height: 50px;
+	}
+	
+	.navbar a {
+	  
+	  width: 7%;
+	  float: left;
+	  font-size: 18px;
+	  color: rgb(0, 0, 0);
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	}
+	
+	.dropdown {
+	  float: right;
+	  overflow: hidden;
+	  margin-top: 1.5px;
+	}
+	
+	.dropdown .dropbtn {
+	  font-size: 16px;  
+	  border: none;
+	  outline: none;
+	  color: rgb(0, 0, 0);
+	  padding: 14px 16px;
+	  background-color: inherit;
+	  font-family: inherit;
+	  margin: 0;
+	}
+	
+	.navbar a:hover, .dropdown:hover .dropbtn {
+	  background-color: rgb(255, 255, 255);
+	}
+	
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #000000;
+	  box-shadow: 0px 8px 16px 0px rgba(212, 97, 3, 0.11);
+	
+	}
+	
+	.dropdown-content a {
+	  float: right;
+	  color: rgb(255, 255, 255);
+	  text-decoration: none;
+	  display: block;
+	  text-align: left;
+	  width:fit-content
+	}
+	
+	.dropdown-content a:hover {
+	  background-color: rgb(128, 128, 128);
+	  color: black;
+	}
+	
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+	
+	.navigation{
+	  
+	  width: 89%;
+	  margin: 0%;
+	}
+	
+	.logo{
+	  width: 9%;
+	  margin: 0%;
+	}
+	
+	.logo, .navigation{
+	  display: inline-block;
+	}
+	
+	input[type=text] {
+	  float: left;
+	  border: none;
+	  height: 38.5px;
+	  margin-top: 1px;
+	  font-size: 18px;
+	  color: white;
+	  background-color: rgb(24, 24, 24);
+	  width: 75%;
+	}
+	
+	button[type=submit]{
+	  position: relative;
+	  height: 80%;
+	  background-color: rgb(163, 101, 29);
+	  
+	}
+	
+	.logoimg{
+	  width: 100%;
+	  margin: 0%;
+	  height: 50px;
+	}
+	
+	.dark-mode {
+	  background-color: rgb(255, 245, 238);
+	  color: rgb(0, 0, 0);
+	}
+	
+	
+	
+	video,form{
+	  margin-right: 2px;
+	}
+	
+	#main{
+	  display: block;
+	  margin-left:2px;
+	  margin-right:2px;
+	  width:99.9%;
+	  height: 500px;;
+	}
+	
+	.submit-btn{
+	  position: relative;
+	  width: 38%;
+	  margin: 4%;
+	  height: 25px;
+	  display: inline-block;
+	  color: white;
+	  background-color: black;
+	}
+	
+	
+	
+	form input{
+	  display: block;
+	}
+	
+	header{
+	  width: 100%;
+	  margin: 0px;
+	}
+	
+	.search-bar{
+	  float: right;
+	  position: relative;
+	  width:30%;
+	  margin-top: 4px;
+	}
+	
+	.dark-btn{
+	  float: right;
+	  width: 5%;
+	  margin-top: 8px;
+	  font-size: 20px;
+	  color: #ffffff;
+	  background-color: black;
+	  margin-right: 20px;
+	}
+	
+	.det-fav{
+	  background-color: rgb(255, 115, 0);
+	  width: 99%;
+	}
+
+	nav h2{
+		text-align: center;
+		width: 92%;
+		height: 50px;
+		margin: 0px;
+		position: relative;
+		display: inline-block;
+	}
+  
+  .table-div{
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  input[type=radio]{
+    width: 10%;
+    display: inline-block;
+  }
+
+</style>
+</head>
+<body>
+  <header>
+		<div class="logo">
+		  <a style="margin: 0%;width: 100%;" href="/home"><img class="logoimg" src='logo.jpeg' alt="Logo"/></a>
+		</div>
+	
+		<div class="navigation">
+		  <nav class=navbar>
+				<h2>Edit Profile</h2>
+		  </nav>
+		</div>
+	</header>
+<br><br>
+<div class="table-div container">
+
+
+<table id="Plans">
+  <tr>
+    <th></th>
+    <th>Mobile</th>
+    <th>Basic</th>
+    <th>Standard</th>
+    <th>Premimum</th>
+  </tr>
+  <tr>
+    <td>Monthly cost * (Indian Rupee)</td>
+    <td>₹199 INR</td>
+    <td>₹499 INR</td>
+    <td>₹649 INR</td>
+    <td>₹799 INR</td>
+  </tr>
+  <tr>
+    <td>Number of screens you can watch on at the same time</td>
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>Number of phones or tablets you can have downloads on </td>
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>4</td>
+   
+  </tr>
+  <tr>
+    <td>Unlimited movies and TV shows </td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    
+  </tr>
+  <tr>
+    <td>Watch on your mobile phone and tablet</td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+  </tr>
+  <tr>
+    <td>Watch on your laptop and TV</td>
+    <td><span style='font-size:30px;'>&#10006;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+  </tr>
+  <tr>
+    <td>HD available</td>
+    <td><span style='font-size:30px;'>&#10006;</span></td>
+    <td><span style='font-size:30px;'>&#10006;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+  </tr>
+  <tr>
+    <td>Ultra HD available</td>
+    <td><span style='font-size:30px;'>&#10006;</span></td>
+    <td><span style='font-size:30px;'>&#10006;</span></td>
+    <td><span style='font-size:30px;'>&#10006;</span></td>
+    <td><span style='font-size:30px;'>&#10004;</span></td>
+  </tr>
+</table>
+
+</div>
+<br/>
+
+
+<div class ="container">
+ <form method="post" action="/payment" onsubmit="return ValidateForm();">
+    <fieldset>
+    <legend>Select your Plan</legend>
+    <input type="radio" name="Plan" value="Mobile">Mobile<br>
+    <input type="radio" name="Plan" value="Basic">Basic<br>
+    <input type="radio" name="Plan" value="Standard">Standard<br>
+    <input type="radio" name="Plan" value="Premium">Premium<br>
+
+        <br>
+    <input type="submit" value="Submit now">
+    </fieldset>
+</form>
+
+</div>
+<script type="text/javascript">
+function ValidateForm()
+{
+    var radioButtons = document.getElementsByName("Plan");
+    for(var i = 0; i < radioButtons.length; i++)
+    {
+        if(radioButtons[i].checked == true)
+        {
+            if(confirm("You have selected " + radioButtons[i].value + " as your Plan. Is that correct?"))
+                return true;
+            else
+                return false;
+        }
+    }
+}
+</script>
+</body>
+</html>
